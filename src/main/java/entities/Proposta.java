@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.context.annotation.EnableMBeanExport;
 
 @Entity
-public class Proposal {
+public class Proposta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,11 @@ public class Proposal {
 
     private Boolean aprovada;
 
+    private boolean integrada;
+
+    private String observacao;
+
     @OneToOne(mappedBy = "id_usuario")
-    private User usuario;
+    private Usuario usuario;
 
 }

@@ -3,13 +3,15 @@ package entities;
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
+
+    private String sobrenome;
 
     private String cpf;
 
@@ -19,5 +21,5 @@ public class User {
 
     @OneToOne
     @JoinColumn(name = "id_usuario")
-    private Proposal proposta;
+    private Proposta proposta;
 }
