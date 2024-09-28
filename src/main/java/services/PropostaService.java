@@ -1,5 +1,6 @@
 package services;
 
+import Mapper.PropostaMapper;
 import dto.PropostaRequestDto;
 import dto.PropostaResponseDto;
 import entities.Proposta;
@@ -14,7 +15,9 @@ public class PropostaService {
     private PropostaRepository propostaRepository;
 
     public PropostaResponseDto criar(PropostaRequestDto requestDto){
-        propostaRepository.save(new Proposta());
-        return null;
+        Proposta proposta = PropostaMapper.INSTANCE.convertDtoToProposta(requestDto);
+        propostaRepository.save(proposta);
+
+        return PropostaMapper.INSTANCE.convertEntityToDto(proposta);
     }
 }
